@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<head>
+  
+  <title>Mi Vida en Imágenes</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #5a0022, #3d0015);
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #fff5f5;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    }
+
+    .preview {
+      cursor: pointer;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+      max-width: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .preview:hover {
+      transform: scale(1.05);
+    }
+
+    .visor {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 999;
+    }
+
+    .visor img {
+      max-width: 80%;
+      max-height: 80%;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255,255,255,0.3);
+    }
+
+    .flechas {
+      margin-top: 20px;
+      display: flex;
+      gap: 40px;
+    }
+
+    .flechas button {
+      background: #fff5f5;
+      color: #5a0022;
+      border: none;
+      padding: 12px 20px;
+      font-size: 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+    }
+
+    .flechas button:hover {
+      background: #5a0022;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .cerrar {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .regresar {
+      margin-top: 40px;
+    }
+
+    .regresar button {
+      background: #fff5f5;
+      color: #5a0022;
+      border: none;
+      padding: 14px 30px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .regresar button:hover {
+      background: #5a0022;
+      color: #fff5f5;
+      transform: scale(1.05);
+    }
+    .track-title {
+  text-align: center;
+  color: #fff5f5;
+  margin-bottom: 15px;
+  text-shadow: 0 0 5px rgba(90,0,34,0.8);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.player-container {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(90, 0, 34, 0.4);
+  background: #3d0015;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+.final {
+      margin-top: 40px;
+    }
+
+    .final button {
+      background: #fff5f5;
+      color: #5a0022;
+      border: none;
+      padding: 14px 30px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .final button:hover {
+      background: #5a0022;
+      color: #fff5f5;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>yo</h1>
+
+  <img src="ok.jpeg" alt="Infancia" class="preview" onclick="abrirVisor(0)">
+
+  
+  <div class="visor" id="visor">
+    <span class="cerrar" onclick="cerrarVisor()">×</span>
+    <img id="imagenVisor" src="" alt="Imagen ampliada">
+    <div class="flechas">
+      <button onclick="cambiarImagen(-1)">⬅</button>
+      <button onclick="cambiarImagen(1)">➡</button>
+    </div>
+  </div>
+
+  <div class="regresar">
+    <button onclick="location.href='peliculas.html'">Regresar</button>
+
+  </div>
+<div class="final">
+    <button onclick="location.href='final.html'">final</button>
+  </div>
+
+  <script>
+    const imagenes = [
+  "ok.jpeg",    
+  "ok2.jpeg",   
+  "3.jpg", 
+  "4.jpg",      
+  "5.jpg",     
+  "6.jpg",     
+  "7.jpg",      
+  "8.jpg",      
+  "9.jpg",     
+  "10.jpg",    
+  "11.jpg",
+  "12.jpg",    
+  "13.jpg",    
+  "14.jpg",     
+  "15.jpg",     
+  
+];
+
+
+    let indiceActual = 0;
+
+    function abrirVisor(indice) {
+      indiceActual = indice;
+      document.getElementById("imagenVisor").src = imagenes[indiceActual];
+      document.getElementById("visor").style.display = "flex";
+    }
+
+    function cerrarVisor() {
+      document.getElementById("visor").style.display = "none";
+    }
+
+    function cambiarImagen(direccion) {
+      indiceActual += direccion;
+      if (indiceActual < 0) indiceActual = imagenes.length - 1;
+      if (indiceActual >= imagenes.length) indiceActual = 0;
+      document.getElementById("imagenVisor").src = imagenes[indiceActual];
+    }
+  </script>
+<h2 class="track-title">Krav Maga - NSQK</h2>
+<div class="player-container">
+  <iframe 
+    width="100%" 
+    height="166" 
+    scrolling="no" 
+    frameborder="no" 
+    allow="autoplay"
+    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/nsqk/krav-maga&color=%235a0022&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+  </iframe>
+</div>
+
+
+</body>
+</html>

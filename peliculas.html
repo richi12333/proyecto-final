@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mis Películas Favoritas</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #5a0022, #3d0015);
+      color: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 30px;
+      color: #fff5f5;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .peliculas {
+      width: 100%;
+      max-width: 800px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 25px 30px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.15);
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+
+    .peliculas img {
+      width: 100%;
+      border-radius: 16px;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));
+    }
+
+    iframe {
+      width: 100%;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    }
+
+    .regresar {
+      margin-top: 20px;
+    }
+    .regresar button {
+      background: #fff5f5;
+      color: #5a0022;
+      border: none;
+      padding: 14px 30px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    .regresar button:hover {
+      background: #5a0022;
+      color: #fff5f5;
+      box-shadow: 0 6px 20px rgba(255,255,255,0.7);
+      transform: scale(1.05);
+    }
+
+     fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .siguiente {
+      margin-top: 20px;
+    }
+    .siguiente button {
+      background: #fff5f5;
+      color: #5a0022;
+      border: none;
+      padding: 14px 30px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    .siguiente button:hover {
+      background: #5a0022;
+      color: #fff5f5;
+      box-shadow: 0 6px 20px rgba(255,255,255,0.7);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mis Películas Favoritas</h1>
+
+  <div class="peliculas">
+    <div>
+      <img src="eterno.jpg" alt="eterno">
+    </div>
+    <div>
+      <strong>El eterno resplando de una mente sin recuerdos</strong> – "Eterno resplandor de una mente sin recuerdos" es una película dirigida por Michel Gondry y escrita por Charlie Kaufman. La trama sigue a Joel, quien al descubrir que su novia, Clementine, se ha sometido a un procedimiento para borrarlo de su memoria, decide hacer lo mismo. Sin embargo, durante el proceso, se arrepiente y lucha por recuperar sus recuerdos
+        <video width="100%" height="306" controls>
+  <source src="resplandor.mp4" type="video/mp4">
+
+</video>
+      </div>
+    </div>
+  </div>
+    
+  </div>
+
+  <div class="peliculas">
+  <div>
+    <img src="interestelar.jpg" alt="Interestelar">
+  </div>
+  <div>
+    <strong>Interestelar</strong> – "Interestelar" es una película de ciencia ficción dirigida por Christopher Nolan. La historia sigue a un grupo de astronautas que viajan a través de un agujero de gusano en busca de un nuevo hogar para la humanidad mientras la Tierra se vuelve inhabitable.
+
+    <video width="100%" height="306" controls>
+      <source src="inter.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+  </div>
+</div>
+
+
+  <div class="regresar">
+    <button onclick="location.href='1.html'">Regresar</button>
+  </div>
+<div class="siguiente">
+    <button onclick="location.href='2.html'">siguiente</button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+
+  <title>Inicio</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #5a0022, #3d0015);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      background-color: #fff5f5;
+      color: #5a0022;
+      padding: 20px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .logo {
+      width: 160px;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.3));
+      animation: float 3s ease-in-out infinite;
+    }
+    .mensaje-bienvenida {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+
+    .boton {
+      padding: 15px 50px;
+      background: white;
+      color: #5a0022;
+      font-size: 20px;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .boton:hover {
+      background: #f5c7d0;
+      transform: scale(1.08);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Centro de Estudios Científicos y Tecnológicos Núm. 14 "Luis Enrique Erro Soler"
+  </header>
+
+  <main>
+    <img src="descarga.png" alt="Logo CECyT 14" class="logo">
+    <p class="mensaje-bienvenida">Bienvenidos al proyecto final de Ricardo Ruiz Salto</p>
+
+    <button class="boton" onclick="location.href='1.html'">EMPEZAR</button>
+  </main>
+
+</body>
+</html>

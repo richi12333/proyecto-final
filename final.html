@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gracias</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #5a0022, #3d0015);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .robot {
+      width: 120px;
+      height: 140px;
+      background: #fff5f5;
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Ojitos */
+    .eye {
+      width: 20px;
+      height: 20px;
+      background: #5a0022;
+      border-radius: 50%;
+      position: absolute;
+      top: 45px;
+      animation: blink 4s infinite;
+    }
+
+    .eye.left {
+      left: 25px;
+    }
+
+    .eye.right {
+      right: 25px;
+    }
+
+    /* Antena */
+    .antenna {
+      width: 6px;
+      height: 30px;
+      background: #fff5f5;
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .antenna::after {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background: #5a0022;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .mensaje {
+      font-size: 24px;
+      text-align: center;
+      max-width: 500px;
+      line-height: 1.6;
+      animation: escribir 4s steps(40) 1 forwards;
+      border-right: 2px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      margin-top: 30px;
+    }
+
+    .boton {
+      margin-top: 30px;
+      padding: 12px 30px;
+      background: white;
+      color: #5a0022;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .boton:hover {
+      background: #f5c7d0;
+      transform: scale(1.08);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes blink {
+      0%, 90%, 100% { transform: scaleY(1); }
+      95% { transform: scaleY(0.1); }
+    }
+
+    @keyframes escribir {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="robot">
+    <div class="antenna"></div>
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+  </div>
+
+  <p class="mensaje">Gracias por visitar mi página web 🤖✨</p>
+
+  <button class="boton" onclick="location.href='inicio.html'">Volver al inicio</button>
+
+</body>
+</html>

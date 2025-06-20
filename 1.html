@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mi Música, Cantantes y Artistas Favoritos</title>
+  <style>
+    /* Fondo vino degradado */
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #5a0022, #3d0015);
+      color: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 30px;
+      color: #fff5f5;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    /* Botones con estilo vino y blanco */
+    .botones {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 40px;
+      width: 100%;
+      max-width: 960px;
+    }
+
+    .boton {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #fff5f5;
+      border-radius: 20px;
+      padding: 12px;
+      width: 140px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+      color: #fff5f5;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      user-select: none;
+      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+    }
+
+    .boton:hover {
+      background: #fff5f5;
+      color: #5a0022;
+      border-color: #5a0022;
+      transform: scale(1.1);
+      box-shadow: 0 0 16px #fff5f5;
+    }
+
+    .boton img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+      transition: transform 0.3s ease;
+    }
+    .boton:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Cantantes grid */
+    .cantantes {
+      width: 100%;
+      max-width: 700px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 25px 30px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.15);
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 25px;
+      margin-bottom: 50px;
+      color: #fff5f5;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .cantantes img {
+      width: 100%;
+      border-radius: 16px;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));
+    }
+
+    /* Reproductor */
+    .reproductor {
+      text-align: center;
+      margin-bottom: 40px;
+      width: 100%;
+      max-width: 700px;
+    }
+    .reproductor h3 {
+      color: #fff5f5;
+      margin-bottom: 15px;
+      text-shadow: 0 0 6px rgba(255,255,255,0.5);
+    }
+    audio {
+      width: 90%;
+      border-radius: 15px;
+      outline: none;
+      filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+    }
+
+    /* Botón regresar */
+    .regresar {
+      margin-bottom: 40px;
+    }
+    .regresar button {
+      background: #fff5f5;
+      color: #5a0022;
+      border: none;
+      padding: 14px 30px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+    .regresar button:hover {
+      background: #5a0022;
+      color: #fff5f5;
+      box-shadow: 0 6px 20px rgba(255,255,255,0.7);
+      transform: scale(1.05);
+    }
+
+    /* Animaciones */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .cantantes {
+        grid-template-columns: 1fr;
+        padding: 15px 20px;
+      }
+      .botones {
+        max-width: 100%;
+        gap: 12px;
+      }
+      .boton {
+        width: 120px;
+        padding: 10px;
+        border-radius: 15px;
+      }
+    }
+    .btn-siguiente {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: #fff5f5;
+  color: #5a0022;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.btn-siguiente:hover {
+  background-color: #5a0022;
+  color: #fff5f5;
+  box-shadow: 0 6px 16px rgba(255,255,255,0.4);
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+
+  <h1>Mi Música, Cantantes y Artistas Favoritos</h1>
+
+ 
+
+  <div class="cantantes">
+    
+
+    <div>
+      <img src="mene.jpg" alt="" />
+    </div>
+    <div>
+    <div style="
+  margin-top: 15px;
+  border: 4px solid #5a0022;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(90, 0, 34, 0.6);
+">
+  <iframe 
+    width="100%" 
+    height="166" 
+    scrolling="no" 
+    frameborder="no" 
+    allow="autoplay"
+    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/nsqk/nsqk-mene-fortnite&color=%235a0022&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+  </iframe>
+</div>
+
+        <strong>Mene</strong> – Méne, cuyo nombre completo es Luis Eduardo Barragán, es un cantante, productor y compositor mexicano, conocido por su estilo musical que fusiona R&B con otros géneros. Nació en Monterrey y comenzó a hacer música desde los 11 años. Su álbum debut, "La Máquina Persona", explora la dualidad de la naturaleza humana
+    </div>
+
+    <div>
+      <img src="alvaro.jpg">
+    </div>
+    <div>
+     <div style="
+  margin-top: 15px;
+  border: 4px solid #5a0022;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(90, 0, 34, 0.6);
+">
+  <iframe 
+    width="100%" 
+    height="166" 
+    scrolling="no" 
+    frameborder="no" 
+    allow="autoplay"
+    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/yoalvarodiaz/ramona-flowers&color=%235a0022&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+  </iframe>
+</div>
+
+        <strong>Alvaro Diaz</strong> – es un cantante y compositor puertorriqueño. Durante su carrera musical ha colaborado con varios artistas como Tainy, Bad Bunny, Sebastián Yatra, Rawayana, Feid, Zion, Eladio Carrión, Yandel, Dalex, Cazzu, Rauw Alejandro, Mora, Jowell & Randy, Myke Towers, Jhayco, Nathy Peluso, Quevedo, Fuego, C. Tangana, entre otros.
+    </div>
+    
+
+    <div>
+      <img src="nsqk.jpg" alt="NSQK" />
+    </div>
+    <div>
+      <strong>rodrigo torres de la garza nsqk</strong> – mejor conocido como Nsqk, es un productor y cantante que mezcla notas de los géneros Pop, Rap, R&B, Rock y EDM para crear música con la intención de romper barreras de géneros y temas.
+
+      <div style="
+  margin-top: 15px;
+  border: 4px solid #5a0022;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(90, 0, 34, 0.6);
+">
+  <iframe 
+    width="100%" 
+    height="166" 
+    scrolling="no" 
+    frameborder="no" 
+    allow="autoplay"
+    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/nsqk/nskq-tonos-de-azul-new-master&color=%235a0022&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+  </iframe>
+</div>
+
+
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="regresar">
+   
+ <button onclick="location.href='inicio.html'">Regresar al currículum</button>
+ 
+  </div>
+<div class="siguiente"><a href="peliculas.html" class="btn-siguiente">Siguiente</a>
+</div>
+</body>
+</html>
